@@ -600,7 +600,7 @@
 			}
 
 			return (
-				'(' + declareRefs + ', ' + 'y.some(function(e){return e == null}) ? void 0 : ' + expr + ')'
+				`(${declareRefs}, ${op === 'NOT IN'} && y.every(function(e){return e == null}) ? true : ${op === 'IN'} && y.every(function(e){return e == null}) ? false : y.some(function(e){return e == null}) ? void 0 : ${expr})`
 			);
 		}
 	}

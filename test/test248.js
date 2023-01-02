@@ -20,3 +20,15 @@ describe('Test 248 IN ()', function () {
 		done();
 	});
 });
+
+it('3. null NOT IN ()', function (done) {
+    var res = alasql('SELECT value null NOT IN ()');
+       assert(res == true);
+       done();
+});
+
+it('4. null IN ()', function (done) {
+    var res = alasql('SELECT value null IN ()');
+       assert(res == false);
+       done();
+});
